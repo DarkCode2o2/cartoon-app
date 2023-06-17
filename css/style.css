@@ -1,0 +1,381 @@
+:root {
+    --main-back: #333;
+    --main-color: #007FFF;
+    --main-light: #DDE6ED;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--main-back);
+    color: var(--main-light);
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* Small */
+@media (min-width: 768px) {
+.container {
+    width: 750px;
+    
+}
+}
+/* Medium */
+@media (min-width: 992px) {
+.container {
+    width: 970px;
+    
+}
+}
+/* Large */
+@media (min-width: 1200px) {
+.container {
+    width: 1200px;
+}
+}
+/* Start Navigation */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 ;
+    padding: 10px 0 ;
+    border-bottom: 1px solid var(--main-color);
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header .logo img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    margin-right: 8px;
+}
+
+header .logo h3 {
+    color: var(--main-light);
+    font-size: 25px;
+}
+
+header .navbar {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+header .navbar li a {
+    color: var(--main-light);
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: .5s;
+}
+header .navbar li a:hover {
+    color: var(--main-color);
+}
+/* End Navigation  */
+/* Start Hero  */
+.hero {
+    background-image: url('https://wallpapercave.com/wp/wp6674889.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.hero::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top:0 ;
+    background-color: rgba(0, 0, 0, 0.503);
+}
+.hero .content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--main-light);
+    width: 100%;
+}
+
+.hero .content p {
+    font-size: 28px;
+    font-weight: bold;
+    max-width: 50%;
+    margin: 10px auto;
+}
+
+/* Start Coloring Button */
+.hero .content a {
+    color: var(--main-light);
+    background-color: var(--main-color);
+    font-size: 18px;
+    border: 0.3em solid var(--main-light);
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    font-weight: bold;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    right: 42%;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
+    display: inline-block;
+}
+
+.hero .content a span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--main-light);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+.hero .content a li:hover {
+    color: black;
+}
+.hero .content a:hover {
+    color: var(--main-color);
+}
+.hero .content a:hover span {
+    transform: translateY(0) scale(2);
+}
+
+.hero .content a span:nth-child(1) {
+    --n: 1;
+}
+
+.hero .content a span:nth-child(2) {
+    --n: 2;
+}
+
+.hero .content a span:nth-child(3) {
+    --n: 3;
+}
+
+.hero .content a span:nth-child(4) {
+    --n: 4;
+}
+
+/* End Coloring Button */
+
+/* End Hero  */
+/* Start Movies Section  */
+section {
+   padding-top: 80px;
+   padding-bottom: 80px;
+}
+section .latest {
+    border-bottom: 1px solid #f4f4f447;
+    padding-bottom: 50px;
+    margin-bottom: 80px;
+}
+
+section .movie-title {
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+section .movies-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+section .movies-content a,
+section .latest .movie {
+    display: inline-block;
+    transition: .5s;
+}
+section .movies-content a:hover{
+    transform: perspective(1000px) translate3d(0px, 0, 30px);
+}
+section .latest .movie:hover {
+    transform: rotate(3deg);
+}
+section .movies-content .movie img {
+    max-width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 3px 8px 20px rgb(86, 85, 85);
+}
+section .movies-content .movie p {
+    color: var(--main-light);
+    margin-top: 10px;
+    font-size: 16px;
+   font-weight: bold;
+}
+/* End Movies Section  */
+/* Start About Us */
+.about-us {
+    margin-top: 80px;
+    margin-bottom: 0px;
+    background-image: url('https://wallpapercave.com/wp/wp7153382.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: whitesmoke;
+    position: relative;
+}
+.about-us::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top:0 ;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.about-us .container {
+    padding: 100px 0;
+    position: relative;
+}
+.about-us .container h2 {
+    text-align: center;
+    font-size: 70px;
+    color: var(--main-light);
+    position: relative;
+    padding-bottom: 30px;
+    letter-spacing: -5px;
+}
+.about-us .container h2::after {
+    content: '';
+    width: 110px;
+    height: 2px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    bottom: 10px;
+}
+.about-us .container p  {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 80%;
+    margin: 10px auto;
+}
+/* End About Us */
+/* Start Download App  */
+.download-app {
+    margin-top: 100px;
+    padding: 200px 0;
+    position: relative;
+    overflow: hidden;
+}
+.download-app .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.download-app .container .text-content { 
+    max-width: 60%;
+}
+.download-app .container .text-content h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: var(--main-color);
+}
+.download-app .container .text-content p {
+    color: #777;
+    line-height: 1.5;
+    font-size: 18px;
+    margin: 20px 0;
+}
+.download-app .container .text-content img {
+    width: 150px;
+    border-radius: 5px;
+    transition: .5s;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.download-app .container .text-content img:last-of-type {
+    margin-right: 10px;
+}
+.download-app .container .text-content img:hover {
+    transform: translateY(-10px);
+}
+.download-app .container > img {
+    width: 250px;
+    transition: .5s;
+    position: absolute;
+    left: -10000px;
+}
+
+.download-app .container > img:hover {
+    transform: rotate(10deg);
+}
+
+/* End Download App  */
+/* Start Show Movie  */
+.show-movie .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 40px;
+}
+.show-movie .container > img {
+    width: 500px;
+    border-radius: 5px;
+}
+
+.show-movie .container .text-content h2 {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+.show-movie .container .text-content p {
+    line-height: 2;
+    font-size: 18px;
+    color: #777;
+    margin: 20px 0;
+}
+.show-movie .container .text-content a {
+    background-color: var(--main-color);
+    color: var(--main-light);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: .5s;
+}
+.show-movie .container .text-content a:hover {
+    background-color: #007fff8f;
+    
+}
+/* End Show Movie  */

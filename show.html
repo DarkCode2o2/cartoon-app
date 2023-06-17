@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <script src="js/init.js"></script>
+</head>
+<body>
+    <script>navbar()</script>
+    <div class="show-movie">
+       
+    </div>
+    <script>
+        let jsonData = 'js/data.json'
+
+        fetch(jsonData) 
+        .then(data => data.json())
+        .then(data => {
+            movieId = localStorage.getItem('cardId')
+            let movieCard = document.querySelector('.show-movie')
+            let movieData = data[movieId]
+
+            console.log(movieData)
+
+            movieCard.innerHTML = 
+            `
+            <div class="container">
+            <img src="${movieData.image}" alt="">
+                <div class="text-content">
+                    <h2>${movieData.title}</h2>
+                    <p>${movieData.description}</p>
+                    <a href="${movieData.movie_link}" target="_blank">مشاهدة الفيلم <i class="fa-solid fa-play"></i></a>
+                </div>
+            </div>
+            `
+        })
+
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>
