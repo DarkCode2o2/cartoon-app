@@ -1,11 +1,11 @@
 
 // Get Elements 
-movieCards = document.querySelectorAll('.popular .movies-content a')
+movieCards = document.querySelectorAll('.movies-content  a')
 
-// Get ID To All Movies Card
+// Add ID To All Movie Card
 
 movieCards.forEach(card => {
-   card.addEventListener('click', (e) => {
+   card.addEventListener('click', () => {
       localStorage.setItem('cardId', card.id)
    })
 });
@@ -33,15 +33,41 @@ if(document.getElementById('element')) {
    });
 }
 
+// Check If Get To Last Of The Page 
 
-window.addEventListener('scroll', () => {
+if(document.querySelector('.download-app .container > img')) {
 
-   let endOfPage = this.innerHeight + this.scrollY >= document.body.offsetHeight - 200
+   window.addEventListener('scroll', () => {
 
-   if(endOfPage) {
-      document.querySelector('.download-app .container > img').style.left = '200px'
+      let endOfPage = this.innerHeight + this.scrollY >= document.body.offsetHeight - 200
+   
+      if(endOfPage) {
+         document.querySelector('.download-app .container > img').style.left = '200px'
+      }else {
+         document.querySelector('.download-app .container > img').style.left = '-1000px'
+   
+      }
+   })
+}
+
+// Toggle Btn Navbar 
+
+toggleBtn = document.querySelector('header > div i') 
+navigation = document.querySelector('header .navbar') 
+
+toggleBtn.addEventListener('click', () => {
+   navigation.classList.toggle('hide')
+
+   // Turn Bar Button To (X) When Click On It
+   if(navigation.classList.contains('hide')) {
+
+      toggleBtn.style.transform = 'rotate(0deg)'
+      toggleBtn.className = 'fa-solid fa-bars-staggered'
+
    }else {
-      document.querySelector('.download-app .container > img').style.left = '-1000px'
 
+      toggleBtn.style.transform = 'rotate(360deg)'
+      toggleBtn.className = 'fa-solid fa-xmark'
    }
 })
+
