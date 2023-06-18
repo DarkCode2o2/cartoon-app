@@ -71,3 +71,21 @@ toggleBtn.addEventListener('click', () => {
    }
 })
 
+document.querySelectorAll('header .navbar a').forEach(e => {
+   e.addEventListener('click', () => {
+      navigation.classList.toggle('hide')
+
+      // Turn Bar Button To (X) When Click On It
+      if(navigation.classList.contains('hide')) {
+
+         toggleBtn.style.transform = 'rotate(0deg)'
+         toggleBtn.className = 'fa-solid fa-bars-staggered'
+
+      }else {
+
+         toggleBtn.style.transform = 'rotate(360deg)'
+         toggleBtn.className = 'fa-solid fa-xmark'
+      }
+   })
+})
+
